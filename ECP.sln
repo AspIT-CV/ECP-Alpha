@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidApp", "AndroidApp\An
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{ECA402C8-A135-467A-8A3D-49D8F77FBEF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{E5499810-49D2-4BFE-9D34-4D0F3AF49ED2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{ECA402C8-A135-467A-8A3D-49D8F77FBEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECA402C8-A135-467A-8A3D-49D8F77FBEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECA402C8-A135-467A-8A3D-49D8F77FBEF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5499810-49D2-4BFE-9D34-4D0F3AF49ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5499810-49D2-4BFE-9D34-4D0F3AF49ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5499810-49D2-4BFE-9D34-4D0F3AF49ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5499810-49D2-4BFE-9D34-4D0F3AF49ED2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{297FDE29-6605-4F61-A70E-9B49B0524A3D} = {B2AA758F-4E55-4C30-B9F0-45536C19EC46}
 		{4469C4F0-4D72-42DC-B68A-FEDD3A929C1E} = {D41D91F3-6A30-4746-89E7-688A77229390}
 		{ECA402C8-A135-467A-8A3D-49D8F77FBEF6} = {D41D91F3-6A30-4746-89E7-688A77229390}
+		{E5499810-49D2-4BFE-9D34-4D0F3AF49ED2} = {D41D91F3-6A30-4746-89E7-688A77229390}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {534DB1F2-1D8F-4EF5-A0E2-0C7D7CE13E20}
