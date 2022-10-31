@@ -16,10 +16,10 @@ namespace Entities
         {
         }
 
-        public virtual DbSet<Assignment> Assignments { get; set; } = null!;
-        public virtual DbSet<AssignmentVolunteer> AssignmentVolunteers { get; set; } = null!;
-        public virtual DbSet<Event> Events { get; set; } = null!;
-        public virtual DbSet<User> Users { get; set; } = null!;
+        public virtual DbSet<Assignment> Assignments { get; set; }
+        public virtual DbSet<AssignmentVolunteer> AssignmentVolunteers { get; set; }
+        public virtual DbSet<Event> Events { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -38,7 +38,7 @@ namespace Entities
 
                 entity.Property(e => e.Name).HasMaxLength(256);
 
-                entity.HasOne(d => d.EventIdFkNavigation)
+                entity.HasOne(d => d.Event)
                     .WithMany(p => p.Assignments)
                     .HasForeignKey(d => d.EventIdFk)
                     .OnDelete(DeleteBehavior.ClientSetNull)
@@ -55,7 +55,7 @@ namespace Entities
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Assignment");
 
-                entity.HasOne(d => d.User)
+                entity.HasOne(d => d.Volunteer)
                     .WithMany()
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
@@ -70,7 +70,7 @@ namespace Entities
 
                 entity.Property(e => e.OrganizerIdFk).HasColumnName("OrganizerID_FK");
 
-                entity.HasOne(d => d.OrganizerIdFkNavigation)
+                entity.HasOne(d => d.Organizer)
                     .WithMany(p => p.Events)
                     .HasForeignKey(d => d.OrganizerIdFk)
                     .OnDelete(DeleteBehavior.ClientSetNull)
