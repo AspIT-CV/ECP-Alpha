@@ -57,4 +57,16 @@
 	  <ProjectReference Include="..\ViewModel\ViewModel.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="ArrangerPage.xaml.cs">
+	    <DependentUpon>ArrangerPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="ArrangerPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace AndroidApp
+﻿using ViewModel;
+
+namespace AndroidApp
 {
     public static class MauiProgram
     {
@@ -12,6 +14,11 @@
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainViewModel>();
+
+            builder.Services.AddTransient<ArrangerPage>();
 
             return builder.Build();
         }
