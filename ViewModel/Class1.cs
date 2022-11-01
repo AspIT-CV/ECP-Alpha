@@ -1,6 +1,6 @@
 ﻿namespace ViewModel
 {
-    public partial class MainViewModel
+    public class Class1
     {
 
     }
