@@ -4,11 +4,11 @@
              x:Class="AndroidApp.MainPage">
 
     <Grid>
+        <Label Text="Velkommen!"/>
         <Image Source="aspit.png"/>
 
         <Grid>
             <Label Text="Navigation"/>
-            
         </Grid>
     </Grid>
 
