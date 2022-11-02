@@ -78,5 +78,10 @@
 				context.Entry(entityToUpdate).State = EntityState.Modified;
 			});
 		}
+
+		public async Task SaveAsync()
+		{
+			await context.SaveChangesAsync();
+		}
 	}
 }

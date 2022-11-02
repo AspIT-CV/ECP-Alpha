@@ -45,7 +45,28 @@ namespace WebApi.Controllers
             }
             catch (Exception)
             {
-                return StatusCode(500, $"An errer occured attempting to get all events by organizer.");
+                return StatusCode(500, $"An error occured attempting to get all events by organizer.");
+            }
+        }
+
+        /// <summary>
+        /// Adds an event
+        /// </summary>
+        /// <param name="event">the event to add</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("/AddEvent")]
+        public async Task<IActionResult> AddEvent(Event @event)
+        {
+            try
+            {
+                await eventRepository.InsertAsync(@event);
+                await eventRepository.SaveAsync();
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, $"An error occured attempting to add event.");
             }
         }
     }
