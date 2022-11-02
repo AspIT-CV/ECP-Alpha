@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using DataAccess;
+using Entities;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ namespace WebApi.Controllers
 {
     public class EventController : Controller
     {
+        EventRepository eventRepository = new(new());
         /// <summary>
         /// Gets all events
         /// </summary>
@@ -15,15 +17,14 @@ namespace WebApi.Controllers
         [Route("/GetAll")]
         public async Task<ActionResult<IEnumerable<Event>>> GetAllEvents()
         {
-            // TODO: replace this with the repo/UoW pattern:
             try
             {                
-                EcpContext context = new();
-                var allEvents = await context.Events.ToListAsync();
+                var allEvents = await eventRepository.GetAllAsync();
                 return Ok(allEvents);              
             }
             catch (Exception e)
             {
+                //Log the exception
                 return StatusCode(500, $"An error occured attempting to get all events.");
             }                        
         }
