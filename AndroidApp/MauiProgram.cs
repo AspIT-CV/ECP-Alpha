@@ -1,4 +1,9 @@
-﻿using ViewModel;
+﻿using Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Services;
+using Services.Interfaces;
+using ViewModel;
 
 namespace AndroidApp
 {
@@ -15,6 +20,8 @@ namespace AndroidApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddScoped<IMockService, MockService>();
+            
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
 
