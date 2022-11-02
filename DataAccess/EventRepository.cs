@@ -12,7 +12,7 @@ namespace DataAccess
         {
         }
 
-        public async Task<List<Event>> GetEventsByOrganizerAsync(int organizerId)
+        public async Task<IEnumerable<Event>> GetEventsByOrganizerAsync(int organizerId)
         {
             return await dbSet.Where(s => s.OrganizerIdFk == organizerId).ToListAsync();
         }
