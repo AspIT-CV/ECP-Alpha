@@ -28,5 +28,25 @@ namespace WebApi.Controllers
                 return StatusCode(500, $"An error occured attempting to get all events.");
             }                        
         }
+
+        /// <summary>
+        /// Get all events by organizer
+        /// </summary>
+        /// <param name="id">the id of the organizer</param>
+        /// <returns>A collection of events by the organizer</returns>
+        [HttpGet("{id}")]
+        [Route("/GetAllByOrganizer")]
+        public async Task<ActionResult<IEnumerable<Event>>> GetAllEventsByOrganizer(int id)
+        {
+            try
+            {
+                var allEventsByOrganizer = await eventRepository.GetEventsByOrganizerAsync(id);
+                return Ok(allEventsByOrganizer);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, $"An errer occured attempting to get all events by organizer.");
+            }
+        }
     }
 }
