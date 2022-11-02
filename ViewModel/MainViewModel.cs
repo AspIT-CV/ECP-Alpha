@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 
 namespace ViewModel
 {
+    /// <summary>
+    ///  This is the Main ViewModel, for the main page.
+    /// </summary>
     public partial class MainViewModel : ObservableObject
     {
         
