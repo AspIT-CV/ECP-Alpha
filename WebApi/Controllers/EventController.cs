@@ -22,9 +22,8 @@ namespace WebApi.Controllers
                 var allEvents = await eventRepository.GetAllAsync();
                 return Ok(allEvents);              
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                //Log the exception
                 return StatusCode(500, $"An error occured attempting to get all events.");
             }                        
         }
@@ -88,6 +87,27 @@ namespace WebApi.Controllers
             catch (Exception)
             {
                 return StatusCode(500, $"An error occured attempting to update the event");
+            }
+        }
+
+        /// <summary>
+        /// Deletes an event
+        /// </summary>
+        /// <param name="id">the id of the event to delete</param>
+        /// <returns></returns>
+        [HttpDelete]
+        [Route("/DeleteEvent")]
+        public async Task<IActionResult> DeleteEvent(int id)
+        {
+            try
+            {
+                await eventRepository.DeleteAsync(id);
+                await eventRepository.SaveAsync();
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, $"An error occured attempting to delete the event");
             }
         }
     }
