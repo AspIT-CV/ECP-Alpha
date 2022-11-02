@@ -19,6 +19,7 @@ namespace AndroidApp
             builder.Services.AddSingleton<MainViewModel>();
 
             builder.Services.AddTransient<ArrangerPage>();
+            builder.Services.AddTransient<ArrangerViewModel>();
 
             return builder.Build();
         }
