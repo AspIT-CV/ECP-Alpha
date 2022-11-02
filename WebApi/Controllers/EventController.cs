@@ -69,5 +69,26 @@ namespace WebApi.Controllers
                 return StatusCode(500, $"An error occured attempting to add event.");
             }
         }
+
+        /// <summary>
+        /// Updates an event
+        /// </summary>
+        /// <param name="event">the updated event</param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("/UpdateEvent")]
+        public async Task<IActionResult> UpdateEvent(Event @event)
+        {
+            try
+            {
+                await eventRepository.UpdateAsync(@event);
+                await eventRepository.SaveAsync();
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, $"An error occured attempting to update the event");
+            }
+        }
     }
 }

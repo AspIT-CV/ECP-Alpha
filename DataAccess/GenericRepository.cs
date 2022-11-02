@@ -45,10 +45,6 @@
 
 		public virtual void Delete(TEntity entityToDelete)
 		{
-			if (context.Entry(entityToDelete).State == EntityState.Detached)
-			{
-				dbSet.Attach(entityToDelete);
-			}
 			dbSet.Remove(entityToDelete);
 		}
 
@@ -56,26 +52,20 @@
 		{
 			await Task.Run(() =>
 			{
-				if (context.Entry(entityToDelete).State == EntityState.Detached)
-				{
-					dbSet.Attach(entityToDelete);
-				}
 				dbSet.Remove(entityToDelete);
 			});
 		}
 
 		public virtual void Update(TEntity entityToUpdate)
 		{
-			dbSet.Attach(entityToUpdate);
-			context.Entry(entityToUpdate).State = EntityState.Modified;
+			dbSet.Update(entityToUpdate);
 		}
 
 		public async Task UpdateAsync(TEntity entityToUpdate)
 		{
 			await Task.Run(() =>
 			{
-				dbSet.Attach(entityToUpdate);
-				context.Entry(entityToUpdate).State = EntityState.Modified;
+				dbSet.Update(entityToUpdate);
 			});
 		}
 
