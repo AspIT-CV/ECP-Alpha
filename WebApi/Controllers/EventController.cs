@@ -33,7 +33,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="id">the id of the organizer</param>
         /// <returns>A collection of events by the organizer</returns>
-        [HttpGet("{id}")]
+        [HttpGet]
         [Route("/GetAllByOrganizer")]
         public async Task<ActionResult<IEnumerable<Event>>> GetAllEventsByOrganizer(int id)
         {
