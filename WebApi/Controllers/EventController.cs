@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class EventController : Controller
     {
         EventRepository eventRepository = new(new());
@@ -14,7 +16,6 @@ namespace WebApi.Controllers
         /// </summary>
         /// <returns>A collection of all events.</returns>
         [HttpGet]
-        [Route("/GetAll")]
         public async Task<ActionResult<IEnumerable<Event>>> GetAllEvents()
         {
             try
@@ -33,8 +34,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="id">the id of the organizer</param>
         /// <returns>A collection of events by the organizer</returns>
-        [HttpGet]
-        [Route("/GetAllByOrganizer")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<Event>>> GetAllEventsByOrganizer(int id)
         {
             try
@@ -54,7 +54,6 @@ namespace WebApi.Controllers
         /// <param name="event">the event to add</param>
         /// <returns></returns>
         [HttpPost]
-        [Route("/AddEvent")]
         public async Task<IActionResult> AddEvent(Event @event)
         {
             try
@@ -75,7 +74,6 @@ namespace WebApi.Controllers
         /// <param name="event">the updated event</param>
         /// <returns></returns>
         [HttpPut]
-        [Route("/UpdateEvent")]
         public async Task<IActionResult> UpdateEvent(Event @event)
         {
             try
@@ -96,7 +94,6 @@ namespace WebApi.Controllers
         /// <param name="id">the id of the event to delete</param>
         /// <returns></returns>
         [HttpDelete]
-        [Route("/DeleteEvent")]
         public async Task<IActionResult> DeleteEvent(int id)
         {
             try
