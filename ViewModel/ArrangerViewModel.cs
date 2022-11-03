@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Entities;
+using Services;
 using Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,29 +16,30 @@ namespace ViewModel
     {
         private IDataService _iDataService;
 
+        public void Initialize()
+        {
+            Events = _iDataService.GetAllEventsAsync().Result;
+        }
 
         public ArrangerViewModel(IDataService iDataService)
         {
-            Events = new ObservableCollection<Event>();
-
             _iDataService = iDataService;
-
-            _iDataService.GetAllEventsAsync();
-
-
         }
 
         [ObservableProperty]
         ObservableCollection<Event> events;
 
         [ObservableProperty]
-        string name;
-
+        ObservableCollection<string> items;
 
         [ICommand]
         void Delete(string s)
         {
-            
+            if (Items.Contains(s))
+            {
+                Events.Remove(Events.Where(e => e.Name == s).Single());
+                Items.Remove(s);
+            }
         }
 
     }

@@ -4,7 +4,8 @@
              x:Class="AndroidApp.ArrangerPage"
              Title="ArrangerPage"
              xmlns:viewmodel="clr-namespace:ViewModel;assembly=ViewModel"
-             x:DataType="viewmodel:ArrangerViewModel">
+             x:DataType="viewmodel:ArrangerViewModel"
+             Loaded="Window_Loaded">
     
     
     <Grid RowDefinitions="100, Auto, *"
@@ -30,7 +31,12 @@
                                            CommandParameter="{Binding .}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
-
+                        <Grid Padding="0,5">
+                            <Frame>
+                                <Label Text="{Binding .}"
+                                       FontSize="24"/>
+                            </Frame>
+                        </Grid>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
