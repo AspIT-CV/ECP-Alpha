@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,6 @@ namespace Services.Interfaces
 {
     public interface IDataService
     {
-        Task<List<Event>> GetAllEventsAsync();
+        Task<ObservableCollection<Event>> GetAllEventsAsync();
     }
 }

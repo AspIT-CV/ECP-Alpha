@@ -1,10 +1,12 @@
 ﻿using Entities;
 using Services.Interfaces;
+using System.Collections.ObjectModel;
 
 namespace Services
 {
     public class MockService : IDataService
     {
+
         public User User = new User()
         {
             Name = "William",
@@ -25,9 +27,10 @@ namespace Services
         };
 
         
-        public async Task<List<Event>> GetAllEventsAsync()
+        public async Task<ObservableCollection<Event>> GetAllEventsAsync()
         {
             await Task.Delay(1000);
+
             return new()
             {
                 new()

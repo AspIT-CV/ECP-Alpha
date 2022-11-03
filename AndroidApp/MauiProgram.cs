@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Services;
 using Services.Interfaces;
+using System.Runtime.CompilerServices;
 using ViewModel;
 
 namespace AndroidApp
@@ -20,15 +21,16 @@ namespace AndroidApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddScoped<IDataService, MockService>();
-            
+
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
 
             builder.Services.AddTransient<ArrangerPage>();
             builder.Services.AddTransient<ArrangerViewModel>();
+            builder.Services.AddTransient<IDataService, MockService>();
 
             return builder.Build();
         }
     }
+
 }
