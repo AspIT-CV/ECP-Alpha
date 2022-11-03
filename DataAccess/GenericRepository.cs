@@ -64,9 +64,9 @@
 		public async Task UpdateAsync(TEntity entityToUpdate)
 		{
 			await Task.Run(() =>
-			{
-				dbSet.Update(entityToUpdate);
-			});
+            {
+                dbSet.Update(entityToUpdate);
+            });
 		}
 
 		public async Task SaveAsync()

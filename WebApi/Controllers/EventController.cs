@@ -32,14 +32,14 @@ namespace WebApi.Controllers
         /// <summary>
         /// Get all events by organizer
         /// </summary>
-        /// <param name="id">the id of the organizer</param>
+        /// <param name="organizerId">the id of the organizer</param>
         /// <returns>A collection of events by the organizer</returns>
-        [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<Event>>> GetAllEventsByOrganizer(int id)
+        [HttpGet("{organizerId}")]
+        public async Task<ActionResult<IEnumerable<Event>>> GetAllEventsByOrganizer(int organizerId)
         {
             try
             {
-                var allEventsByOrganizer = await eventRepository.GetEventsByOrganizerAsync(id);
+                var allEventsByOrganizer = await eventRepository.GetEventsByOrganizerAsync(organizerId);
                 return Ok(allEventsByOrganizer);
             }
             catch (Exception)
@@ -62,9 +62,9 @@ namespace WebApi.Controllers
                 await eventRepository.SaveAsync();
                 return Ok();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return StatusCode(500, $"An error occured attempting to add event.");
+                return StatusCode(500, $"An error occured attempting to add event.\n{e}");
             }
         }
 
@@ -93,7 +93,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="id">the id of the event to delete</param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEvent(int id)
         {
             try
