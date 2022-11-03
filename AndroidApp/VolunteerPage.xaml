@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AndroidApp.VolunteerPage"
+             Title="Frivillige"
+             xmlns:viewmodel="clr-namespace:ViewModel;assembly=ViewModel"
+             x:DataType="viewmodel:VolunteerViewModel">
+    
+    <Grid RowDefinitions="70, Auto, *"
+          ColumnDefinitions=".85*, .15*"
+          Padding="10"
+          RowSpacing="10"
+          ColumnSpacing="10">
+
+        <Button Text="Arrangement historik"
+                BorderColor="Black"
+                Margin="465, 15"
+                Grid.Row="0"
+                Grid.ColumnSpan="2" />
+
+        <Entry Placeholder="Din beskrivelse"
+               Text="{Binding Text}"
+               Grid.Row="1" />
+
+        <Button Text="Gem"
+                BorderColor="Black"
+                Margin="30, 15"
+                Grid.Row="1"
+                Grid.Column="1" />
+
+        <CollectionView Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        ItemsSource="{Binding ArrangementsInNeedOfVolunteers}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type x:String}">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Ryd"
+                                           BackgroundColor="Red"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                    </SwipeView>
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
