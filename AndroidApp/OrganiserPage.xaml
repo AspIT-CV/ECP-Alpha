@@ -4,12 +4,14 @@
              x:Class="AndroidApp.OrganiserPage"
              Title="OrganiserPage"
              xmlns:viewmodel="clr-namespace:ViewModel;assembly=ViewModel"
+             xmlns:model="clr-namespace:Entities;assembly=Entities"
              x:DataType="viewmodel:OrganiserViewModel"
              Loaded="Window_Loaded">
     
     
     <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".75*, .25*"
+          RowSpacing="10"
           Padding="10">
 
         <SearchBar Placeholder="Indtast frivillig"
@@ -18,29 +20,64 @@
                 Grid.Row="1"
                 Grid.Column="1"/>
 
-        <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
-                        ItemsSource="{Binding Events}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="{x:Type x:String}">
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem Text="Delete"
-                                           BackgroundColor="Red"
-                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OrganiserViewModel}}, Path=DeleteCommand}"
-                                           CommandParameter="{Binding .}"/>
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <Grid Padding="0,5">
-                            <Frame>
-                                <Label Text="{Binding .}"
-                                       FontSize="24"/>
-                            </Frame>
+            <StackLayout Padding="10" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" BindableLayout.ItemsSource="{Binding Events}"
+                         BackgroundColor="Orange">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="model:Event">
+                        <StackLayout>
+                            <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                                  Background="transparent">
+                                <Label Text="ID:" Grid.Row="1" FontAttributes="Bold"/>
+                                <Label Text="{Binding EventId}" Grid.Column="2"/>
+                            </Grid>
+
+                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                                  Background="transparent">
+                                <Label Text="Title:" FontAttributes="Bold" Grid.Row="1"/>
+                                <Label Text="{Binding Name}" Grid.Column="2"/>
+                            </Grid>
+
+                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                                  Background="transparent">
+                            <Label Text="Description" FontAttributes="Bold"/>
+                            <Label Text="{Binding Description}" Grid.Column="2"/>
+                            </Grid>
+
+                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                                  Background="transparent">
+                            <Label Text="Starts:" FontAttributes="Bold"/>
+                            <Label Text="{Binding StartTime}" Grid.Column="2"/>
                         </Grid>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+
+                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                                  Background="transparent">
+                            <Label Text="Ends:" FontAttributes="Bold"/>
+                            <Label Text="{Binding EndTime}" Grid.Column="2"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                                  Background="transparent">
+                            <Label Text="Address:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Address}" Grid.Column="2"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                                  Background="transparent">
+                            <Label Text="Organiser:" FontAttributes="Bold"/>
+                            <Label Text="{Binding Organizer}" Grid.Column="2"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                                  Background="transparent">
+                            <Label Text="Assignments" FontAttributes="Bold"/>
+                            <Label Text="{Binding Assignments}" Grid.Column="2"/>
+                        </Grid>
+                    </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+
+        
 
     </Grid>
 </ContentPage>

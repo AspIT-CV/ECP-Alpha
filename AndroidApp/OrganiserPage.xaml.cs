@@ -8,6 +8,8 @@ public partial class OrganiserPage : ContentPage
 {
 	private OrganiserViewModel viewModel;
 
+
+
 	public OrganiserPage(OrganiserViewModel viewModel)
 	{
 		InitializeComponent();
