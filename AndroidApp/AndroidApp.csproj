@@ -63,13 +63,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="ArrangerPage.xaml.cs">
-	    <DependentUpon>ArrangerPage.xaml</DependentUpon>
+	  <Compile Update="OrganiserPage.xaml.cs">
+	    <DependentUpon>OrganiserPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="ArrangerPage.xaml">
+	  <MauiXaml Update="OrganiserPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

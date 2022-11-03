@@ -12,7 +12,7 @@
         Route="MainPage" />
 
     <ShellContent
-        Title="Arrangement"
-        ContentTemplate="{DataTemplate local:ArrangerPage}"
-        Route="ArrangerPage"/>
+        Title="Organisers"
+        ContentTemplate="{DataTemplate local:OrganiserPage}"
+        Route="OrganiserPage"/>
 </Shell>

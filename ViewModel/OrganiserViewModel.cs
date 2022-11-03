@@ -12,16 +12,12 @@ using System.Threading.Tasks;
 
 namespace ViewModel
 {
-    public partial class ArrangerViewModel : ObservableObject
+    public partial class OrganiserViewModel : ObservableObject
     {
         private IDataService _iDataService;
 
-        public void Initialize()
-        {
-            Events = _iDataService.GetAllEventsAsync().Result;
-        }
 
-        public ArrangerViewModel(IDataService iDataService)
+        public OrganiserViewModel(IDataService iDataService)
         {
             _iDataService = iDataService;
         }
@@ -40,6 +36,11 @@ namespace ViewModel
                 Events.Remove(Events.Where(e => e.Name == s).Single());
                 Items.Remove(s);
             }
+        }
+
+        public async Task Initialize()
+        {
+            Events = await _iDataService.GetAllEventsAsync();
         }
 
     }
