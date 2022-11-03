@@ -7,6 +7,7 @@
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(OrganiserPage), typeof(OrganiserPage));
+            Routing.RegisterRoute(nameof(VolunteerPage), typeof(VolunteerPage));
         }
     }
 }
