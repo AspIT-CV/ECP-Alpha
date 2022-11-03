@@ -15,4 +15,9 @@
         Title="Arrangement"
         ContentTemplate="{DataTemplate local:ArrangerPage}"
         Route="ArrangerPage"/>
+
+    <ShellContent
+        Title="Volunteers"
+        ContentTemplate="{DataTemplate local:VolunteerPage}"
+        Route="VolunteersPage"/>
 </Shell>
