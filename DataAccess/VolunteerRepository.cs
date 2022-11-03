@@ -1,4 +1,6 @@
-﻿namespace DataAccess
+﻿using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
+
+namespace DataAccess
 {
 	public class VolunteerRepository : GenericRepository<AssignmentVolunteer>
 	{
@@ -25,9 +27,20 @@
 
 		public async Task SelectVolunteerToAssignment(int volunteerId, int assignmentId)
 		{
-			var volunteer = await dbSet.SingleAsync(s => s.UserId == volunteerId && s.AssignmentId == assignmentId);
-			volunteer.IsSelected = true;
-			await UpdateAsync(volunteer);
+			//var volunteer = await dbSet.SingleAsync(s => s.UserId == volunteerId && s.AssignmentId == assignmentId);
+			//volunteer.IsSelected = true;
+			//await UpdateAsync(volunteer);
+			User volunteer = context.Users.Find(volunteerId);
+			Assignment ass = context.Assignments.Find(assignmentId);
+			AssignmentVolunteer av = new()
+			{
+				Volunteer = volunteer,
+				Assignment = ass,
+				IsSelected = true
+			};
+
+			base.Insert(av);	
+
 		}
 	}
 }
