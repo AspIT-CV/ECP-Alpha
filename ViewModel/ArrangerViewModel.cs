@@ -13,35 +13,31 @@ namespace ViewModel
 {
     public partial class ArrangerViewModel : ObservableObject
     {
-        private IMockService _iMockService;
+        private IDataService _iDataService;
 
-        public ArrangerViewModel(IMockService iMockService)
+
+        public ArrangerViewModel(IDataService iDataService)
         {
-            _iMockService = iMockService;
-            Events = new ObservableCollection<string>();
+            Events = new ObservableCollection<Event>();
+
+            _iDataService = iDataService;
+
+            _iDataService.GetAllEventsAsync();
+
+
         }
 
         [ObservableProperty]
-        ObservableCollection<string> events;
+        ObservableCollection<Event> events;
 
         [ObservableProperty]
         string name;
 
-        void Initialize()
-        {
-            foreach (Event item in _iMockService.Events)
-            {
-
-            }
-        }
 
         [ICommand]
         void Delete(string s)
         {
-            if (Events.Contains(s))
-            {
-                Events.Remove(s);
-            }
+            
         }
 
     }

@@ -20,7 +20,7 @@ namespace AndroidApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddScoped<IMockService, MockService>();
+            builder.Services.AddScoped<IDataService, MockService>();
             
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();

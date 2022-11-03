@@ -7,9 +7,8 @@ using Entities;
 
 namespace Services.Interfaces
 {
-    public interface IMockService
+    public interface IDataService
     {
-        EcpContext Context { get; }
-        List<Event> Events { get; }
+        Task<List<Event>> GetAllEventsAsync();
     }
 }
