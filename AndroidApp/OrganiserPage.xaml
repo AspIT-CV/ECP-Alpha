@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<!-- XAML page for Organisers -->
+    <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AndroidApp.OrganiserPage"
@@ -8,7 +9,7 @@
              x:DataType="viewmodel:OrganiserViewModel"
              Loaded="Window_Loaded">
     
-    
+    <!-- Grid/Overall layout -->
     <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".33*, .33*, .33*"
           RowSpacing="10"
@@ -20,15 +21,24 @@
         <Button Text="Confirm"
                 Grid.Row="1"
                 Grid.Column="2"/>
-
+        
+        
+                <!-- Binding Events/Layout -->
+        
             <StackLayout Padding="10" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" BindableLayout.ItemsSource="{Binding Events}"
                          BackgroundColor="Transparent">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="model:Event">
+                        
+                        
+                        
+                        <!-- Bindings / Stylings -->
                     <Border Stroke="gray"
                             StrokeThickness="2"
                             StrokeShape="RoundRectangle 10,10,10,40">
+                        
                         <StackLayout BackgroundColor="Orange" Padding="10">
+                            
                             <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                                 <Label Text="ID:" Grid.Row="1" FontAttributes="Bold"/>
@@ -76,8 +86,11 @@
                             <Label Text="Assignments:" FontAttributes="Bold"/>
                             <Label Text="{Binding Assignments}" Grid.Column="2"/>
                         </Grid>
+                            
                     </StackLayout>
+                        
                     </Border>
+                        
                 </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </StackLayout>
