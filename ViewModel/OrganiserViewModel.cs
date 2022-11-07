@@ -25,19 +25,6 @@ namespace ViewModel
         [ObservableProperty]
         ObservableCollection<Event> events;
 
-        [ObservableProperty]
-        ObservableCollection<string> items;
-
-        [ICommand]
-        void Delete(string s)
-        {
-            if (Items.Contains(s))
-            {
-                Events.Remove(Events.Where(e => e.Name == s).Single());
-                Items.Remove(s);
-            }
-        }
-
         public async Task Initialize()
         {
             Events = await _iDataService.GetAllEventsAsync();
