@@ -10,70 +10,75 @@
     
     
     <Grid RowDefinitions="100, Auto, *"
-          ColumnDefinitions=".75*, .25*"
+          ColumnDefinitions=".33*, .33*, .33*"
           RowSpacing="10"
           Padding="10">
 
-        <SearchBar Placeholder="Indtast frivillig"
-                   Grid.Row="1"/>
+        <SearchBar Placeholder="Indtast frivillig..."
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"/>
         <Button Text="Confirm"
                 Grid.Row="1"
-                Grid.Column="1"/>
+                Grid.Column="2"/>
 
             <StackLayout Padding="10" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" BindableLayout.ItemsSource="{Binding Events}"
-                         BackgroundColor="Orange">
+                         BackgroundColor="Transparent">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="model:Event">
-                        <StackLayout>
-                            <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                    <Border Stroke="gray"
+                            StrokeThickness="2"
+                            StrokeShape="RoundRectangle 10,10,10,40">
+                        <StackLayout BackgroundColor="Orange" Padding="10">
+                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                                 <Label Text="ID:" Grid.Row="1" FontAttributes="Bold"/>
                                 <Label Text="{Binding EventId}" Grid.Column="2"/>
                             </Grid>
 
-                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                                 <Label Text="Title:" FontAttributes="Bold" Grid.Row="1"/>
                                 <Label Text="{Binding Name}" Grid.Column="2"/>
                             </Grid>
 
-                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
-                            <Label Text="Description" FontAttributes="Bold"/>
+                            <Label Text="Description:" FontAttributes="Bold"/>
                             <Label Text="{Binding Description}" Grid.Column="2"/>
                             </Grid>
 
-                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                             <Label Text="Starts:" FontAttributes="Bold"/>
                             <Label Text="{Binding StartTime}" Grid.Column="2"/>
                         </Grid>
 
-                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                             <Label Text="Ends:" FontAttributes="Bold"/>
                             <Label Text="{Binding EndTime}" Grid.Column="2"/>
                         </Grid>
 
-                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                             <Label Text="Address:" FontAttributes="Bold"/>
                             <Label Text="{Binding Address}" Grid.Column="2"/>
                         </Grid>
 
-                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                             <Label Text="Organiser:" FontAttributes="Bold"/>
                             <Label Text="{Binding Organizer}" Grid.Column="2"/>
                         </Grid>
 
-                        <Grid ColumnDefinitions=".50*, .50*" ColumnSpacing="0.1"
+                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
-                            <Label Text="Assignments" FontAttributes="Bold"/>
+                            <Label Text="Assignments:" FontAttributes="Bold"/>
                             <Label Text="{Binding Assignments}" Grid.Column="2"/>
                         </Grid>
                     </StackLayout>
-                    </DataTemplate>
+                    </Border>
+                </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </StackLayout>
 
