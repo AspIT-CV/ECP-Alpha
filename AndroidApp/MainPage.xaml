@@ -3,18 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AndroidApp.MainPage"
              Title="Hjem">
-
-    <Grid RowDefinitions="100, auto, *"
-          ColumnDefinitions=".75*, .25*"
+    
+    <Grid RowDefinitions="60, 100, 100, auto, *"
+          ColumnDefinitions=".33*, .34*"
           Padding="10">
-        
+
         <Label Text="Velkommen!"
-               Grid.ColumnSpan="2"
-               Grid.Row="1"
-               Grid.Column="2"
+               Grid.ColumnSpan="3"
+               Grid.Row="0"
+               FontSize="32"
                HorizontalOptions="Center"
                />
 
+        <Label Text="Kunne du tænke dig at være med i et stærkt fællesskab, med alle slags forskellige aktiviteter? Så er dette seje program måske noget for dig!"
+               Grid.ColumnSpan="2"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               BackgroundColor="LightBlue"
+               
+               Margin="-8, 0"
+               Padding="250, 0"
+               Grid.Row="1"
+               FontSize="18"
+               HorizontalOptions="Center"
+               LineBreakMode="WordWrap"
+               />
+
+        <Label Text="Made by WillAndPhil Industries ⓒ"
+               Grid.ColumnSpan="2"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               
+               Grid.Row="2"
+               FontSize="12"
+               HorizontalOptions="Center"
+               LineBreakMode="WordWrap"
+               />
 
     </Grid>
 
