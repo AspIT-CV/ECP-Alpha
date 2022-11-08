@@ -15,25 +15,7 @@ namespace Services
     {
         public async Task<List<Assignment>> GetAssignmentsByEventId(int eventId)
         {
-            var returnResponse = new List<Assignment>();
-            using (var client = new HttpClient())
-            {
-                string url = $"{baseUrl}/api/Assignment/{eventId}";
-                var apiResponse = await client.GetAsync(url);
-
-                if (apiResponse.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    var response = await apiResponse.Content.ReadAsStringAsync();
-
-                    var deserilizeResponse = JsonConvert.DeserializeObject<MainResponseService>(response);
-
-                    if (deserilizeResponse.IsSuccess)
-                    {
-                        returnResponse = JsonConvert.DeserializeObject<List<Assignment>>(deserilizeResponse.Content.ToString());
-                    }
-                }
-                return returnResponse;
-            }
+            return await DoHttpGetRequest($"Assignment/{eventId}");
         }
     }
 }

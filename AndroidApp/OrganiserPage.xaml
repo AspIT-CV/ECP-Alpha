@@ -31,63 +31,64 @@
                          BackgroundColor="Transparent">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="model:Event">
-                        
-                        
-                        
+
+
+
                         <!-- Bindings / Stylings -->
-                    <Border Stroke="gray"
+                        <Border Stroke="gray"
                             StrokeThickness="2"
                             StrokeShape="RoundRectangle 10,10,10,40">
-                        
-                        <StackLayout BackgroundColor="Orange" Padding="10">
-                            
-                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
-                                  Background="transparent">
-                                <Label Text="ID:" Grid.Row="1" FontAttributes="Bold"/>
-                                <Label Text="{Binding EventId}" Grid.Column="2"/>
-                            </Grid>
 
-                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
-                                  Background="transparent">
-                                <Label Text="Title:" FontAttributes="Bold" Grid.Row="1"/>
-                                <Label Text="{Binding Name}" Grid.Column="2"/>
-                            </Grid>
+                            <StackLayout BackgroundColor="Orange" Padding="10">
 
-                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
-                            <Label Text="Description:" FontAttributes="Bold"/>
-                            <Label Text="{Binding Description}" Grid.Column="2"/>
-                            </Grid>
+                                    <Label Text="ID:" Grid.Row="1" FontAttributes="Bold"/>
+                                    <Label Text="{Binding EventId}" Grid.Column="2"/>
+                                </Grid>
 
-                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
-                            <Label Text="Starts:" FontAttributes="Bold"/>
-                            <Label Text="{Binding StartTime}" Grid.Column="2"/>
-                        </Grid>
+                                    <Label Text="Title:" FontAttributes="Bold" Grid.Row="1"/>
+                                    <Label Text="{Binding Name}" Grid.Column="2"/>
+                                </Grid>
 
-                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
-                            <Label Text="Ends:" FontAttributes="Bold"/>
-                            <Label Text="{Binding EndTime}" Grid.Column="2"/>
-                        </Grid>
+                                    <Label Text="Description:" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Description}" Grid.Column="2"/>
+                                </Grid>
 
-                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
-                            <Label Text="Address:" FontAttributes="Bold"/>
-                            <Label Text="{Binding Address}" Grid.Column="2"/>
-                        </Grid>
+                                    <Label Text="Starts:" FontAttributes="Bold"/>
+                                    <Label Text="{Binding StartTime}" Grid.Column="2"/>
+                                </Grid>
 
-                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
-                            <Label Text="Organiser:" FontAttributes="Bold"/>
-                                <Label Text="{Binding OrganizerIdFk}" Grid.Column="2"/>
-                        </Grid>
+                                    <Label Text="Ends:" FontAttributes="Bold"/>
+                                    <Label Text="{Binding EndTime}" Grid.Column="2"/>
+                                </Grid>
 
-                            <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
-                            <Label Text="Assignments:" FontAttributes="Bold"/>
-                            </Grid>
-                            
+                                    <Label Text="Address:" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Address}" Grid.Column="2"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+                                  Background="transparent">
+                                    <Label Text="Organiser:" FontAttributes="Bold"/>
+                                    <Label Text="{Binding OrganizerIdFk}" Grid.Column="2"/>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+                                  Background="transparent">
+                                    <Label Text="No. of assignments:" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Assignments.Count}"/>
+                                </Grid>
+
                                 <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                                     <Button Text="Delete"
@@ -97,11 +98,12 @@
                                 </Grid>
 
                             </StackLayout>
-                        
-                    </Border>
-                        
-                </DataTemplate>
+
+                        </Border>
+
+                    </DataTemplate>
                 </BindableLayout.ItemTemplate>
+
             </StackLayout>
         </ScrollView>
 

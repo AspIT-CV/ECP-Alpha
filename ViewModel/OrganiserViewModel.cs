@@ -48,17 +48,10 @@ namespace ViewModel
             }
         }
 
-        [ICommand]
-        async void DetailsCommand(int assignmentId)
-        {
-
-        }
-
         public async Task Initialize()
         {
             List<Event> tempEvents = await _iEventService.GetAllEventsAsync();
             tempEvents.ForEach(@event => Events.Add(@event));
-            tempEvents.ForEach(@event => Assignments.Add(@event.Assignments.Single()));
         }
 
     }
