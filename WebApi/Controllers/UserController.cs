@@ -11,7 +11,7 @@ namespace WebApi.Controllers
     {
         UserRepository userRepository = new(new());
 
-        [HttpGet("ESeekingV")]
+        [HttpGet("ESeekingV")]//GET: api/User/ESeekingV
         public async Task<ActionResult<IEnumerable<Event>>> GetEventsSeekingVolounteers()
         {
             try

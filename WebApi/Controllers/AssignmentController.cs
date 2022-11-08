@@ -11,7 +11,7 @@ namespace WebApi.Controllers
     {
         AssignmentRepository assignmentRepository = new(new());
 
-        [HttpGet("{eventId}")]
+        [HttpGet("{eventId}")]//GET: api/Assignment/1
         public async Task<ActionResult<IEnumerable<Assignment>>> GetAssignmentsByEvent(int eventId)
         {
             try
@@ -24,8 +24,7 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpPost]
-
+        [HttpPost]//POST: api/Assignment/{assignment}
         public async Task<IActionResult> AddAssignment(Assignment assignment)
         {
             try
@@ -40,7 +39,7 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut]//PUT: api/Assignment/{assignment}
         public async Task<IActionResult> UpdateAssignment(Assignment assignment)
         {
             try
@@ -55,7 +54,7 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete]//DELETE: api/Assignment/1
         public async Task<IActionResult> DeleteAssignment(int assignmentId)
         {
             try
