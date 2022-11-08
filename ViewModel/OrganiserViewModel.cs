@@ -49,7 +49,7 @@ namespace ViewModel
         }
 
         [ICommand]
-        async void DetailsCommand(int assignmentId)
+        async Task Details(int assignmentId)
         {
 
         }
@@ -60,6 +60,7 @@ namespace ViewModel
             try
             {
                 Text = await _iEventService.DoHttpDeleteRequest($"Event/{eventId}");
+                Events.Remove(Events.Single(s => s.EventId == eventId));
             }
             catch (Exception)
             {
