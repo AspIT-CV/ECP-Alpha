@@ -22,10 +22,10 @@ namespace AndroidApp
                 });
 
 
-            builder.Services.AddSingleton<IDataService, MockService>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
 
+            builder.Services.AddTransient<IEventService<Event>, EventService>();
             builder.Services.AddTransient<OrganiserPage>();
             builder.Services.AddTransient<OrganiserViewModel>();
 

@@ -14,20 +14,41 @@ namespace ViewModel
 {
     public partial class OrganiserViewModel : ObservableObject
     {
-        private IDataService _iDataService;
+        private IEventService<Event> _iEventService;
 
 
-        public OrganiserViewModel(IDataService iDataService)
+        public OrganiserViewModel(IEventService<Event> iEventService)
         {
-            _iDataService = iDataService;
+            _iEventService = iEventService;
+            Events = new();
         }
 
         [ObservableProperty]
         ObservableCollection<Event> events;
 
+        [ObservableProperty]
+        string text;
+
+        [ICommand]
+        async void Search()
+        {
+            try
+            {
+                Events.Clear();
+                var tempEvents = await _iEventService.GetEventsByOrganiserAsync(int.Parse(Text));
+                Text = string.Empty;
+                tempEvents.ForEach(@event => Events.Add(@event));
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
         public async Task Initialize()
         {
-            Events = await _iDataService.GetAllEventsAsync();
+            List<Event> tempEvents = await _iEventService.GetAllEventsAsync();
+            tempEvents.ForEach(@event => Events.Add(@event));
         }
 
     }
