@@ -27,6 +27,9 @@ namespace ViewModel
         ObservableCollection<Event> events;
 
         [ObservableProperty]
+        ObservableCollection<Assignment> assignments;
+
+        [ObservableProperty]
         string text;
 
         [ICommand]
@@ -43,6 +46,12 @@ namespace ViewModel
             {
                 throw new Exception();
             }
+        }
+
+        [ICommand]
+        async void DetailsCommand(int assignmentId)
+        {
+
         }
 
         [ICommand]
@@ -63,6 +72,7 @@ namespace ViewModel
         {
             List<Event> tempEvents = await _iEventService.GetAllEventsAsync();
             tempEvents.ForEach(@event => Events.Add(@event));
+            //tempEvents.ForEach(@event => Assignments.Add(@event.Assignments.Single()));
         }
 
     }

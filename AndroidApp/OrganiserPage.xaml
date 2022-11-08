@@ -86,10 +86,17 @@
                             <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                             <Label Text="Assignments:" FontAttributes="Bold"/>
-                            <Label Text="{Binding Assignments}" Grid.Column="2"/>
-                        </Grid>
+                            </Grid>
                             
-                    </StackLayout>
+                                <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
+                                  Background="transparent">
+                                    <Button Text="Delete"
+                                            Command="{Binding DeleteCommand}"
+                                            CommandParameter="{Binding EventId}"
+                                            BackgroundColor="Red"/>
+                                </Grid>
+
+                            </StackLayout>
                         
                     </Border>
                         
