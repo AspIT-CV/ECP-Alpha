@@ -9,6 +9,6 @@ namespace Services.Interfaces
 {
     public interface IAssignmentService
     {
-        Task<List<Assignment>> GetAssignmentsByEventId(int eventId);
+        //Task<List<Assignment>> GetAssignmentsByEventId(int eventId);
     }
 }

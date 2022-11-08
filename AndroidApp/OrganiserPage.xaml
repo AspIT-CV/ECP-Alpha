@@ -92,7 +92,7 @@
                                 <Grid ColumnDefinitions="Auto, Auto" ColumnSpacing="5"
                                   Background="transparent">
                                     <Button Text="Delete"
-                                            Command="{Binding DeleteCommand}"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OrganiserViewModel}}, Path=DeleteCommand}"
                                             CommandParameter="{Binding EventId}"
                                             BackgroundColor="Red"/>
                                 </Grid>
