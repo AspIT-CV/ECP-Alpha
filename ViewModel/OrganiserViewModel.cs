@@ -30,7 +30,7 @@ namespace ViewModel
         string text;
 
         [ICommand]
-        async void Search()
+        async Task Search()
         {
             try
             {
@@ -42,6 +42,20 @@ namespace ViewModel
             catch (Exception)
             {
                 throw new Exception();
+            }
+        }
+
+        [ICommand]
+        async Task Delete(int eventId)
+        {
+            try
+            {
+                Text = await _iEventService.DoHttpDeleteRequest($"Event/{eventId}");
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
